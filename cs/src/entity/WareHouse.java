@@ -1,8 +1,4 @@
-package warehouse;
-
-import product.Product;
-import staff.ManageStaff;
-import staff.Staff;
+package entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;

@@ -1,7 +1,7 @@
-package warehouse;
+package entity;
 
-import create.Create;
 import create.CreateFile;
+import methods.ManageWarehouse;
 
 import java.io.Serializable;
 import java.time.LocalDate;

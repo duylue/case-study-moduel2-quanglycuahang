@@ -1,12 +1,12 @@
 package create;
 
-import product.Product;
-import staff.ManageStaff;
-import staff.Staff;
-import warehouse.ManageBill;
-import warehouse.ManageWarehouse;
-import warehouse.Sell;
-import warehouse.WareHouse;
+import entity.Product;
+import entity.Staff;
+import methods.ManageStaff;
+import methods.ManageBill;
+import methods.ManageWarehouse;
+import entity.Sell;
+import entity.WareHouse;
 
 import java.io.Serializable;
 import java.time.LocalDate;

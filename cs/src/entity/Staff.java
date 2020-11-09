@@ -1,4 +1,4 @@
-package staff;
+package entity;
 
 import java.io.Serializable;
 

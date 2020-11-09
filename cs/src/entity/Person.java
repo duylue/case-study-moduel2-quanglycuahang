@@ -1,4 +1,4 @@
-package staff;
+package entity;
 
 import java.io.Serializable;
 
@@ -24,14 +24,6 @@ public class Person implements Serializable {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public String getPersonID() {
-        return personID;
-    }
-
-    public void setPersonID(String personID) {
-        this.personID = personID;
     }
 
     public String getBirth() {

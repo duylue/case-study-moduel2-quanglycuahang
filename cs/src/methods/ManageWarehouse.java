@@ -1,7 +1,7 @@
-package warehouse;
+package methods;
 
 import create.CreateFile;
-import staff.Staff;
+import entity.WareHouse;
 
 import java.io.Serializable;
 import java.util.ArrayList;

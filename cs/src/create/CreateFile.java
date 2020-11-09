@@ -1,9 +1,6 @@
 package create;
 
-import warehouse.Sell;
-
 import java.io.*;
-import java.util.ArrayList;
 
 public class CreateFile {
 
