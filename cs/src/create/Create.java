@@ -1,7 +1,10 @@
 package create;
 
 import product.Product;
+import staff.ManageStaff;
 import staff.Staff;
+import warehouse.ManageBill;
+import warehouse.ManageWarehouse;
 import warehouse.Sell;
 import warehouse.WareHouse;
 
@@ -11,6 +14,10 @@ import java.util.Scanner;
 
 public class Create implements Serializable {
     public void menus(){
+        ManageStaff manageStaff = new ManageStaff();
+        ManageWarehouse manageWarehouse = new ManageWarehouse();
+        Scanner scanner = new Scanner(System.in);
+        ManageBill manageBill = new ManageBill();
         System.out.println("0 THOÁT");
         System.out.println("1 BÁN HÀNG");
         System.out.println("2 NHẬP HÀNG");
@@ -18,6 +25,82 @@ public class Create implements Serializable {
         System.out.println("4 XÓA SẢN PHẨM");
         System.out.println("5 DOANH THU TRONG NGAY");
         System.out.println("6 QUẢN LÝ NHÂN VIÊN");
+        int choice = Integer.parseInt(scanner.nextLine());
+        switch (choice){
+
+            case 1:
+                Sell sell = creatBill();
+                System.out.println("Nhập Mã hàng ");
+                String id =scanner.nextLine();
+                sell.setIdProduct(id);
+                sell.payProduct();
+                System.out.println(sell.toString());
+                System.out.println("THÀNH TIỀN "+sell.pay());
+                manageBill.add(sell);
+                break;
+            case 2:
+                System.out.println("1 thêm sản phẩm mới");
+                System.out.println("2 update sản phẩm");
+                int choice3 = Integer.parseInt(scanner.nextLine());
+                switch (choice3){
+                    case 1:
+                        WareHouse wareHouse = createWareHouse();
+                        manageWarehouse.add(wareHouse);
+                        manageWarehouse.read();
+                        break;
+                    case 2:
+                        WareHouse wareHouse2 = createWareHouse();
+                        manageWarehouse.update(wareHouse2);
+
+
+                }
+
+                break;
+            case 3:
+                manageWarehouse.read();
+                break;
+            case 4:
+                System.out.println("Nhap ID");
+                manageWarehouse.delete(scanner.nextLine());
+            case 5:
+                manageBill.read();
+                System.out.println("DOANG THU NGÀY :" +LocalDate.now()+ " = "+ manageBill.totalPayDay());
+                break;
+
+
+            case 6:
+                menusStaff();
+                int choice2 = Integer.parseInt(scanner.nextLine());
+                switch (choice2){
+                    case 1:
+                        Staff staff = createStaff();
+                        manageStaff.add(staff);break;
+                    case 2:
+                        System.out.println("NHẬP MÃ NHÂN VIÊN");
+                        String timekeeping = manageStaff.timekeeping(scanner.nextLine());
+                        manageStaff.addTimekeeping(timekeeping);
+                        manageStaff.readTimekeeping();
+                        break;
+                    case 3:
+                        manageStaff.delete(scanner.nextLine());
+                        break;
+                    case 4:
+                        Staff staff1 = createStaff();
+                        manageStaff.update(staff1);
+                        break;
+                    case 5:
+                        manageStaff.read();
+                        break;
+                    case 6:
+                        manageStaff.readInfor();
+
+                }
+                break;
+
+            case 0 :
+                System.exit(-1);
+
+        }
 
     }
     public void menusStaff(){
